@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-content>
+        
+        <h1 style="text-align: center;">Type 2 numbers and choose operation.</h1>
+
+        <v-card class="mx-auto" max-width="400" outlined>
+
+          <v-col cols="6" sm="12">
+            <v-text-field
+              v-model.number="num1"
+              label="First Number"
+              outlined
+            ></v-text-field>
+          </v-col>
+  
+          <v-col cols="6" sm="12">
+            <v-text-field
+              v-model.number="num2"
+              label="Second Number"
+              outlined
+            ></v-text-field>
+          </v-col>
+
+          <v-row justify="space-around">
+              <v-btn @click="plus" class="mx-2" fab dark color="orange">
+                <v-icon dark>mdi-plus</v-icon>
+              </v-btn>
+              <v-btn @click="minus" class="mx-2" fab dark color="orange">
+                <v-icon dark>mdi-minus</v-icon>
+              </v-btn>
+              <v-btn @click="multiply" class="mx-2" fab dark color="orange">
+                <v-icon dark>mdi-close</v-icon>
+              </v-btn>
+              <v-btn @click="division" class="mx-2" fab dark color="orange">
+                <v-icon dark>mdi-division</v-icon>
+              </v-btn>
+          </v-row>
+
+        <v-card-actions>
+
+          <v-btn type="submit" color="purple accent-4 ma-2" dark large @click="clear">Clear</v-btn>
+          
+          <h2 style="position: absolute; right: 0px; margin-right: 1.5em;">Result: {{total}}</h2>
+
+        </v-card-actions>
+
+        </v-card>
+
+      </v-content>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        num1: '',
+        num2: '',
+        total: '',
+      },
+      methods: {
+        plus: function () {
+          this.total = this.num1 + this.num2
+        },
+        minus: function () {
+          this.total = this.num1 - this.num2
+        },
+        multiply: function () {
+          this.total = this.num1 * this.num2
+        },
+        division: function () {
+          this.total = this.num1 / this.num2
+        },
+        clear: function () {
+          this.num1 = '',
+          this.num2 = '',
+          this.total = ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>
