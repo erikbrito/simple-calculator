@@ -1,3 +1,7 @@
+# test the code:
+
+https://simplecalculator.now.sh/
+
 # simple-calculator
 Simple calculator with 2 fields and 4 operating buttons
 
